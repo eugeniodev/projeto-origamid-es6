@@ -2,7 +2,7 @@ import "whatwg-fetch";
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import initScroll from './modules/anime-scroll.js';
-import initLinkScroll from './modules/link-scroll.js';
+import ScrollSuave from './modules/link-scroll.js';
 import initTabMenu from './modules/navtab.js';
 import initAccordion from './modules/acordionlist.js';
 import initModal from './modules/modal.js';
@@ -13,8 +13,10 @@ import initFuncionamento from './modules/funcionamento.js';
 import initFetchAnimais from './modules/fetch-animais.js';
 import initFetchBitcoin from './modules/fetch-bitcoin.js';
 
+const scrollSuave = new ScrollSuave('[data-anime="menu"] a[href^="#"]');
+scrollSuave.init();
+
 initScroll();
-initLinkScroll();
 initTabMenu();
 initAccordion();
 initModal();
