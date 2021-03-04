@@ -1,10 +1,10 @@
 import "whatwg-fetch";
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import initScroll from './modules/anime-scroll.js';
 import ScrollSuave from './modules/link-scroll.js';
-import initTabMenu from './modules/navtab.js';
 import initAccordion from './modules/acordionlist.js';
+import initScroll from './modules/anime-scroll.js';
+import initTabMenu from './modules/navtab.js';
 import initModal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
 import initdropDown from './modules/dropdown.js';
