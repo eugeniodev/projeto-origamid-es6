@@ -1,25 +1,36 @@
 // selecionado todos os links que começam com o #
-export default function initLinkScroll() {
-	const linkInternos = document.querySelectorAll('[data-anime="menu"] a[href^="#"]');
+export default class ScrollSuave {
+	//a opcao de scrooll optinos nao esta funcionado.
+	constructor(links, options) {
+		this.linkInternos = document.querySelectorAll(links);
+		if (options === undefined) {
+			this.options = { behavior: "smooth", block: "start"};
+		}else{
+			this.options = options;
+		}
 
-	function scrollToSection(event) {
+		this.scrollToSection = this.scrollToSection.bind(this);
+	}
+
+
+	scrollToSection(event) {
 		event.preventDefault();
 		const href = event.currentTarget.getAttribute('href');
 		const section = document.querySelector(href);
 
-		section.scrollIntoView({
-			behavior: 'smooth',
-			block: 'start',
-		});
-		// forma alternativa
-		// const topo = section.offsetTop;
-		// window.scrollTo({
-		//     top: topo,
-		//     behavior: 'smooth',
-		// })
+		section.scrollIntoView(this.options);
 	}
 
-	linkInternos.forEach((link) => {
-		link.addEventListener('click', scrollToSection);
-	});
+	addLinkEvent(){
+		this.linkInternos.forEach((link) => {
+			link.addEventListener('click', this.scrollToSection);
+		});
+	}
+
+	init(){	
+		if (this.linkInternos.length){
+			this.addLinkEvent();
+		}
+		return this;
+	}
 }
