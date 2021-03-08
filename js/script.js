@@ -4,7 +4,7 @@ import 'regenerator-runtime/runtime';
 import ScrollSuave from './modules/link-scroll.js';
 import Accordion from './modules/acordionlist.js';
 import TabNav from './modules/navtab.js';
-import initModal from './modules/modal.js';
+import Modal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
 import initdropDown from './modules/dropdown.js';
 import initMenuMobile from './modules/menumobile.js';
@@ -22,7 +22,9 @@ acordion.init();
 const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section');
 tabNav.init();
 
-initModal();
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="conatiner"]');
+modal.init();
+
 initTooltip();
 initdropDown();
 initMenuMobile();
