@@ -5,7 +5,7 @@ import ScrollSuave from './modules/link-scroll.js';
 import Accordion from './modules/acordionlist.js';
 import TabNav from './modules/navtab.js';
 import Modal from './modules/modal.js';
-import initTooltip from './modules/tooltip.js';
+import Tooltip from './modules/tooltip.js';
 import initdropDown from './modules/dropdown.js';
 import initMenuMobile from './modules/menumobile.js';
 import initFuncionamento from './modules/funcionamento.js';
@@ -25,7 +25,9 @@ tabNav.init();
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="conatiner"]');
 modal.init();
 
-initTooltip();
+const tooltip = new Tooltip('[data-toolTip]');
+tooltip.init();
+
 initdropDown();
 initMenuMobile();
 initFuncionamento();
