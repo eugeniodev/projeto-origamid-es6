@@ -1,6 +1,6 @@
 // selecionado todos os links que começam com o #
 export default class ScrollSuave {
-	//a opcao de scrooll optinos nao esta funcionado.
+	// a opcao de scrooll optinos nao esta funcionado.
 	constructor(links, options) {
 		this.linkInternos = document.querySelectorAll(links);
 		if (options === undefined) {
