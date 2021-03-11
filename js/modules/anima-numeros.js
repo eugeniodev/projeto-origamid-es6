@@ -13,7 +13,7 @@ export default class AnimaNumeros {
 	static incrementarNumber(numero) {
 		// o simbolo de + transforma um string em numero
 		const total = +numero.innerText;
-		const incremento = Math.floor(total / 120);
+		const incremento = Math.floor(total / 140);
 		let start = 0;
 		const timer = setInterval(() => {
 			start += incremento;
@@ -49,7 +49,7 @@ export default class AnimaNumeros {
 	}
 
 	init() {
-		if (this.numero.length && this.observaTarget) {
+		if (this.numeros.length && this.observaTarget) {
 			this.addMutationObserver();
 		}
 		return this;
