@@ -3,7 +3,31 @@ export default class ScrollAnima {
 	constructor(section) {
 		this.section = document.querySelectorAll(section);
 		this.windowMetade = window.innerHeight * 0.6;
-		this.animaScroll = this.animaScroll.bind(this);
+		this.checkDistance = this.checkDistance.bind(this);
+	}
+
+	// pega a distância de cada item em relação ao
+	// topo do site
+	getDistance() {
+		this.distance = [...this.section].map((section) => {
+			const offset = section.offsetTop;
+			return {
+				element: section,
+				offset: Math.floor( offset - this.windowMetade),
+			};
+		});
+	}
+	
+	// verifica a distância em cada objeto
+	// em relação ao scroll do site
+	checkDistance() {
+		this.distance.forEach((section) => {
+			if (window.pageYOffset > section.offset) {
+				section.element.classList.add('ativo');
+			} else if (section.element.classList.contains('ativo')){
+				section.element.classList.remove('ativo');
+			};
+		});
 	}
 
 	animaScroll() {
@@ -17,7 +41,15 @@ export default class ScrollAnima {
 	}
 
 	init() {
-		this.animaScroll();
-		window.addEventListener('scroll', this.animaScroll);
+		if (this.sections.length){
+			this.getDistance();
+			this.checkDistance();
+			window.addEventListener('scroll', this.checkDistance);
+		}
+		return this;
+	}
+	// remove o evento de scroll 
+	stop() {
+		window.removeEventListener('scroll', this.checkDistance);
 	}
 }
