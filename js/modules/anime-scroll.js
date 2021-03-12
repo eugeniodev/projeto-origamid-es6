@@ -1,9 +1,11 @@
+import debounce from './debounce.js';
+
 export default class ScrollAnima {
 
 	constructor(section) {
 		this.section = document.querySelectorAll(section);
 		this.windowMetade = window.innerHeight * 0.6;
-		this.checkDistance = this.checkDistance.bind(this);
+		this.checkDistance = debounce(this.checkDistance.bind(this), 50);
 	}
 
 	// pega a distância de cada item em relação ao
@@ -29,17 +31,7 @@ export default class ScrollAnima {
 			};
 		});
 	}
-
-	animaScroll() {
-		this.section.forEach((section) => {
-			const sectionTop = section.getBoundingClientRect().top;
-			const sectionVision = (sectionTop - this.windowMetade) < 0;
-			if (sectionVision) {
-				section.classList.add('ativo');
-			}
-		});
-	}
-
+	
 	init() {
 		if (this.section.length){
 			this.getDistance();
