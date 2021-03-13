@@ -9,10 +9,9 @@ import Tooltip from './modules/tooltip.js';
 import ScrollAnima from './modules/anime-scroll.js';
 import DropDown from './modules/dropdown.js';
 import MenuMobile from './modules/menumobile.js';
-import initFuncionamento from './modules/funcionamento.js';
+import Funcionamento from './modules/funcionamento.js';
 import fetchAnimais from './modules/fetch-animais.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
-import debounce from './modules/debounce.js';
 
 
 const scrollSuave = new ScrollSuave('[data-anime="menu"] a[href^="#"]');
@@ -39,8 +38,8 @@ dropDown.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
-initFuncionamento();
-debounce();
+const funcionamentoHorario = new Funcionamento('[data-semana]', 'aberto');
+funcionamentoHorario.init();
 
 fetchAnimais('../js/animaisapi.json', '.numeros-grid');
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
