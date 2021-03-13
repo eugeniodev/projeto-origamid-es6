@@ -5,7 +5,7 @@ export default class ScrollAnima {
 	constructor(section) {
 		this.section = document.querySelectorAll(section);
 		this.windowMetade = window.innerHeight * 0.6;
-		this.checkDistance = debounce(this.checkDistance.bind(this), 50);
+		this.checkDistance = debounce(this.checkDistance.bind(this), 10);
 	}
 
 	// pega a distância de cada item em relação ao
@@ -23,6 +23,7 @@ export default class ScrollAnima {
 	// verifica a distância em cada objeto
 	// em relação ao scroll do site
 	checkDistance() {
+		this.getDistance();	
 		this.distance.forEach((section) => {
 			if (window.pageYOffset > section.offset) {
 				section.element.classList.add('ativo');
@@ -34,8 +35,8 @@ export default class ScrollAnima {
 	
 	init() {
 		if (this.section.length){
-			this.getDistance();
 			this.checkDistance();
+			this.getDistance();
 			window.addEventListener('scroll', this.checkDistance);
 		}
 		return this;
