@@ -1,84 +1,84 @@
-section.container-modal{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.3);
-    align-items: center;
-    justify-content: center;
+section.container-modal {
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
 }
-.container-modal form{
-    background-color: white;
-    padding:40px 10px 40px 10px;
-    border: 8px solid #fb5;
-    box-shadow: 0 0 0 14px white;
-    position: relative;
-    max-width: 400px;
-    width: 100%;
+.container-modal form {
+  background-color: white;
+  padding: 40px 10px 40px 10px;
+  border: 8px solid #fb5;
+  box-shadow: 0 0 0 14px white;
+  position: relative;
+  max-width: 400px;
+  width: 80%;
 }
-.container-modal .fechar{
-    position: absolute;
-    top: -45px;
-    right: -45px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 4px 5px 2px rgba(0,0,0,0.3);
-    cursor: pointer;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.5rem;
-    border: 4px solid white;
-    background-color: #E54;
-    color: white;
+.container-modal .fechar {
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 5px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", monospace;
+  border: 4px solid white;
+  background: #e54 url("../img/fechar.svg") no-repeat center center;
+  color: white;
 }
-.container-modal .fechar:hover{
-    border: 4px solid #cccccc;
-    color: #cccccc;
+.container-modal .fechar:hover {
+  border: 4px solid #cccccc;
+  color: #cccccc;
 }
-.container-modal input,label,button{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+.container-modal input,
+label,
+button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-.container-modal input[type="email"],input[type="password"]{
-    width: 100%;
-    height: 30px;
-    border: 1px solid solid rgb(90,90,90);
+.container-modal input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 30px;
+  border: 1px solid solid rgb(90, 90, 90);
 }
-.container-modal button[type="submit"]{
-    width: 100px;
-    height: 30px;
-    background-color: white;
-    border: 0;
-    cursor: pointer;
-    background-color: #E54;
-    color: white;
+.container-modal button[type="submit"] {
+  width: 100px;
+  height: 30px;
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  background-color: #e54;
+  color: white;
 }
-.container-modal button[type="submit"]:hover{
-    border: 1px solid #E54;
-    background-color: white;
-    color: #E54;
+.container-modal button[type="submit"]:hover {
+  border: 1px solid #e54;
+  background-color: white;
+  color: #e54;
 }
 .container-modal {
-    display: none;
+  display: none;
 }
-.js .container-modal.ativo{
-    display: flex;
-    animation: showDown .5s forwards;
+.js .container-modal.ativo {
+  display: flex;
+  animation: showDown 0.5s forwards;
 }
-
-
 
 @keyframes showDown {
-    from{
-        opacity: 0;
-        transform: translate3d(0,-35px,0);
-    }
-    to{
-        opacity: 1;
-        transform: translate3d(0,0,0);
-    }
-    
+  from {
+    opacity: 0;
+    transform: translate3d(0, -35px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
